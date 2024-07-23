@@ -1,0 +1,154 @@
+Elaborar un algoritmo que solicite el número de respuestas correctas, incorrectas y en blanco 
+correspondiente a postulantes y que muestre sus puntajes finales, considerando:
+• Respuesta correcta tendrá 4 puntos.
+• Respuestas incorrectas tendrá -1 punto.
+• Respuestas en blanco tendrá 0 puntos.
+
+Entrada:
+Respuestas correctas (C)
+Respuestas incorrectas (I)
+Respuestas en blanco (B)
+Salida:
+Puntaje final (P)
+Proceso:
+
+Calcular el puntaje final con la fórmula: P = (C * 4) + (I * -1) + (B * 0)
+
+
+Inicio
+    Leer C
+    Leer I
+    Leer B
+    P = (C * 4) + (I * -1) + (B * 0)
+    Escribir P
+Fin
+
+
+Elaborar un algoritmo que permita ingresar el número de partidos ganados, perdidos y 
+empatados por algún equipo en el torneo apertura, se debe de mostrar su puntaje total, 
+teniendo en cuenta que por cada partido ganado obtendrá 3 puntos, empatado 1 punto y 
+perdido 0 puntos.
+
+
+Entrada:
+Partidos ganados (G)
+Partidos perdidos (P)
+Partidos empatados (E)
+Salida:
+Puntaje total (T)
+Proceso:
+
+Calcular el puntaje total con la fórmula: T = (G * 3) + (E * 1) + (P * 0)
+
+Inicio
+    Leer G
+    Leer P
+    Leer E
+    T = (G * 3) + (E * 1) + (P * 0)
+    Escribir T
+Fin
+
+
+Se requiere elaborar un algoritmo para construir la planilla de pago de un empleado, para 
+ello se dispone de sus horas laboradas en el mes, así como del valor de la tarifa por hora.
+
+Entrada:
+Horas laboradas (H)
+Tarifa por hora (T)
+Salida:
+Pago total (P)
+Proceso:
+
+Calcular el pago total con la fórmula: P = H * T
+
+Inicio
+    Leer H
+    Leer T
+    P = H * T
+    Escribir P
+Fin
+
+Elaborar un algoritmo que solicite la edad de dos hermanos y muestre un mensaje indicando 
+la edad del mayor y cuántos años de diferencia tiene con el menor
+
+Entrada:
+Edad del primer hermano (E1)
+Edad del segundo hermano (E2)
+Salida:
+Edad del hermano mayor
+Diferencia de edad (D)
+Proceso:
+
+Comparar las edades para encontrar el mayor y el menor.
+Calcular la diferencia de edad: D = |E1 - E2|
+
+Inicio
+    Leer E1
+    Leer E2
+    Si E1 > E2 Entonces
+        Mayor = E1
+        Menor = E2
+    
+    Sino
+        Si E1 != E2 Entonces
+            Mayor = E2
+            Menor = E1
+        Sino
+            Return Tienen la misma edad
+    FinSi
+    D = Mayor - Menor
+    Escribir "El hermano mayor tiene", Mayor, "años y la diferencia de edad es", D, "años."
+Fin
+
+
+Elaborar un algoritmo que permita leer tres números enteros distintos entre sí, y determinar 
+el orden de mayor a menor de los tres
+
+
+Entrada:
+Número 1 (N1)
+Número 2 (N2)
+Número 3 (N3)
+Salida:
+Orden de los números de mayor a menor
+Proceso:
+
+Comparar los números para ordenar de mayor a menor.
+
+Inicio
+    Leer N1
+    Leer N2
+    Leer N3
+    Si N1 > N2 Entonces
+        Si N1 > N3 Entonces
+            Mayor1 = N1
+            Si N2 > N3 Entonces
+                Mayor2 = N2
+                Menor = N3
+            Sino
+                Mayor2 = N3
+                Menor = N2
+            FinSi
+        Sino
+            Mayor1 = N3
+            Mayor2 = N1
+            Menor = N2
+        FinSi
+    Sino
+        Si N2 > N3 Entonces
+            Mayor1 = N2
+            Si N1 > N3 Entonces
+                Mayor2 = N1
+                Menor = N3
+            Sino
+                Mayor2 = N3
+                Menor = N1
+            FinSi
+        Sino
+            Mayor1 = N3
+            Mayor2 = N2
+            Menor = N1
+        FinSi
+    FinSi
+    Escribir Mayor1, Mayor2, Menor
+Fin
