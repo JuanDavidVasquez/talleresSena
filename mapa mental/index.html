@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa Mental de Ingeniería de Requisitos</title>
+  <script src="https://unpkg.com/gojs/release/go.js"></script>
+  <style>
+    #myDiagramDiv {
+      width: 100%;
+      height: 600px;
+      border: 1px solid black;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="myDiagramDiv"></div>
+  <script>
+function init() {
+  const $ = go.GraphObject.make;
+
+  const myDiagram = $(go.Diagram, "myDiagramDiv", {
+    "undoManager.isEnabled": true,
+    layout: $(go.TreeLayout, { angle: 90, layerSpacing: 40 })
+  });
+
+  myDiagram.nodeTemplate =
+    $(go.Node, "Auto",
+      $(go.Shape, "RoundedRectangle",
+        { strokeWidth: 1, fill: "lightblue" },
+        new go.Binding("fill", "color")),
+      $(go.TextBlock,
+        { margin: 8, font: "bold 12pt sans-serif" },
+        new go.Binding("text", "key"))
+    );
+
+  const nodeDataArray = [
+    { key: "Ingeniería de Requisitos", color: "#FFDDC1" },
+    { key: "Tipos de Requisitos", color: "#F8B195", parent: "Ingeniería de Requisitos" },
+    { key: "Funcionales", parent: "Tipos de Requisitos" },
+    { key: "No Funcionales", parent: "Tipos de Requisitos" },
+    { key: "Sistema", parent: "Tipos de Requisitos" },
+    { key: "Usuario", parent: "Tipos de Requisitos" },
+    { key: "Negocio", parent: "Tipos de Requisitos" },
+
+    { key: "Características", color: "#F67280", parent: "Ingeniería de Requisitos" },
+    { key: "Claridad", parent: "Características" },
+    { key: "Consistencia", parent: "Características" },
+    { key: "Viabilidad", parent: "Características" },
+    { key: "Verificabilidad", parent: "Características" },
+    { key: "Prioridad", parent: "Características" },
+    { key: "Trazabilidad", parent: "Características" },
+
+    { key: "Clasificación", color: "#C06C84", parent: "Ingeniería de Requisitos" },
+    { key: "Esenciales", parent: "Clasificación" },
+    { key: "Deseables", parent: "Clasificación" },
+    { key: "Opcionales", parent: "Clasificación" },
+    { key: "Derivados", parent: "Clasificación" },
+
+    { key: "Técnicas de Elicitación", color: "#6C5B7B", parent: "Ingeniería de Requisitos" },
+    { key: "Entrevistas", parent: "Técnicas de Elicitación" },
+    { key: "Cuestionarios", parent: "Técnicas de Elicitación" },
+    { key: "Observación", parent: "Técnicas de Elicitación" },
+    { key: "Prototipos", parent: "Técnicas de Elicitación" },
+    { key: "Análisis de Documentos", parent: "Técnicas de Elicitación" },
+    { key: "Talleres de Trabajo", parent: "Técnicas de Elicitación" },
+
+    { key: "Ciclo de Vida", color: "#355C7D", parent: "Ingeniería de Requisitos" },
+    { key: "Recopilación", parent: "Ciclo de Vida" },
+    { key: "Análisis", parent: "Ciclo de Vida" },
+    { key: "Especificación", parent: "Ciclo de Vida" },
+    { key: "Validación", parent: "Ciclo de Vida" },
+    { key: "Gestión del Cambio", parent: "Ciclo de Vida" }
+  ];
+
+  const linkDataArray = [
+    { from: "Ingeniería de Requisitos", to: "Tipos de Requisitos" },
+    { from: "Ingeniería de Requisitos", to: "Características" },
+    { from: "Ingeniería de Requisitos", to: "Clasificación" },
+    { from: "Ingeniería de Requisitos", to: "Técnicas de Elicitación" },
+    { from: "Ingeniería de Requisitos", to: "Ciclo de Vida" },
+
+    { from: "Tipos de Requisitos", to: "Funcionales" },
+    { from: "Tipos de Requisitos", to: "No Funcionales" },
+    { from: "Tipos de Requisitos", to: "Sistema" },
+    { from: "Tipos de Requisitos", to: "Usuario" },
+    { from: "Tipos de Requisitos", to: "Negocio" },
+
+    { from: "Características", to: "Claridad" },
+    { from: "Características", to: "Consistencia" },
+    { from: "Características", to: "Viabilidad" },
+    { from: "Características", to: "Verificabilidad" },
+    { from: "Características", to: "Prioridad" },
+    { from: "Características", to: "Trazabilidad" },
+
+    { from: "Clasificación", to: "Esenciales" },
+    { from: "Clasificación", to: "Deseables" },
+    { from: "Clasificación", to: "Opcionales" },
+    { from: "Clasificación", to: "Derivados" },
+
+    { from: "Técnicas de Elicitación", to: "Entrevistas" },
+    { from: "Técnicas de Elicitación", to: "Cuestionarios" },
+    { from: "Técnicas de Elicitación", to: "Observación" },
+    { from: "Técnicas de Elicitación", to: "Prototipos" },
+    { from: "Técnicas de Elicitación", to: "Análisis de Documentos" },
+    { from: "Técnicas de Elicitación", to: "Talleres de Trabajo" },
+
+    { from: "Ciclo de Vida", to: "Recopilación" },
+    { from: "Ciclo de Vida", to: "Análisis" },
+    { from: "Ciclo de Vida", to: "Especificación" },
+    { from: "Ciclo de Vida", to: "Validación" },
+    { from: "Ciclo de Vida", to: "Gestión del Cambio" }
+  ];
+
+  myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+}
+
+window.addEventListener('DOMContentLoaded', init);
+
+
+  </script>
+</body>
+</html>
